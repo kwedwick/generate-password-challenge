@@ -55,7 +55,7 @@ header {
 }
 
 .card-header::after {
-  content: " ";
+  content: "";
   display: block;
   width: 100%;
   background: #e7e9eb;
@@ -109,7 +109,7 @@ button[disabled] {
   float: right;
 }
 
-#password {
+#passwordDisplay {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
