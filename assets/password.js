@@ -30,7 +30,6 @@ form.addEventListener('submit', e => {
     e.preventDefault()
     const characterAmount = characterAmountNumber.value
     const includeLowercase = includeLowercaseElement.checked
-    console.log(includeLowercase)
     const includeUppercase = includeUppercaseElement.checked
     const includeNumbers = includeNumbersElement.checked
     const includeSymbols = includeSymbolsElement.checked
