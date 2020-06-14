@@ -26,10 +26,11 @@ characterAmountNumber.addEventListener('input', syncCharacterAmount)
 characterAmountRange.addEventListener('input', syncCharacterAmount)
 
 
-form.addEventListener('userInputForm', e => {
+form.addEventListener('submit', e => {
     e.preventDefault()
     const characterAmount = characterAmountNumber.value
     const includeLowercase = includeLowercaseElement.checked
+    console.log(includeLowercase)
     const includeUppercase = includeUppercaseElement.checked
     const includeNumbers = includeNumbersElement.checked
     const includeSymbols = includeSymbolsElement.checked
@@ -38,18 +39,22 @@ form.addEventListener('userInputForm', e => {
 })
 
 function generatePassword(characterAmount, includeLowercase, includeUppercase, includeNumbers, includeSymbols) {
-    let charCodes = LOWERCASE_ASCII_CODES
+    let charCodes = new Array()
+    if (includeLowercase) charCodes = charCodes.concat(LOWERCASE_ASCII_CODES)
     if (includeUppercase) charCodes = charCodes.concat(UPPERCASE_ASCII_CODES)
     if (includeNumbers) charCodes = charCodes.concat(NUMBERS_ASCII_CODES)
     if (includeSymbols) charCodes = charCodes.concat(SYMBOL_ASCII_CODES)
+    if (charCodes.length == 0) {
+        window.alert("You didn't select a parameter. Default is lowercase. Please select one of the boxes and submit again.");
+        charCodes = LOWERCASE_ASCII_CODES;
+    }
     const passwordCharacters = []
 
     for (let i = 0; i < characterAmount; i++){
-        const characterCode = charCodes[Math.floor(Math.random() * characterAmount)]
+        const characterCode = charCodes[Math.floor(Math.random() * charCodes.length)]
         passwordCharacters.push(String.fromCharCode(characterCode))
     }
-    return passwordCharacters.join('')
-
+    return passwordCharacters.join("")
 }
 
 function arrayFromLowToHigh(low, high) {
