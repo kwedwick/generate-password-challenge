@@ -31,4 +31,4 @@ Link to live webpage: https://kwedwick.github.io/generate-password-challenge/
 ## Screenshot
 Here is the final UI:
 
-![Final_Look](./assets/ReadMe-Screensho.jpg)
+![Final_Look](./assets/ReadMe-Screenshot.jpg)
